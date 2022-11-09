@@ -20,7 +20,7 @@ mixin _$MockDataState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Flight data) data,
+    required TResult Function(List<Flight> data) data,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$MockDataState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Flight data)? data,
+    TResult? Function(List<Flight> data)? data,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$MockDataState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Flight data)? data,
+    TResult Function(List<Flight> data)? data,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$_MockDataStateInitial implements _MockDataStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Flight data) data,
+    required TResult Function(List<Flight> data) data,
     required TResult Function(String error) error,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$_MockDataStateInitial implements _MockDataStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Flight data)? data,
+    TResult? Function(List<Flight> data)? data,
     TResult? Function(String error)? error,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$_MockDataStateInitial implements _MockDataStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Flight data)? data,
+    TResult Function(List<Flight> data)? data,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$_MockDataStateLoading implements _MockDataStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Flight data) data,
+    required TResult Function(List<Flight> data) data,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$_MockDataStateLoading implements _MockDataStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Flight data)? data,
+    TResult? Function(List<Flight> data)? data,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$_MockDataStateLoading implements _MockDataStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Flight data)? data,
+    TResult Function(List<Flight> data)? data,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$_MockDataStateDataCopyWith<$Res> {
           $Res Function(_$_MockDataStateData) then) =
       __$$_MockDataStateDataCopyWithImpl<$Res>;
   @useResult
-  $Res call({Flight data});
+  $Res call({List<Flight> data});
 }
 
 /// @nodoc
@@ -338,9 +338,9 @@ class __$$_MockDataStateDataCopyWithImpl<$Res>
   }) {
     return _then(_$_MockDataStateData(
       data: null == data
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as Flight,
+              as List<Flight>,
     ));
   }
 }
@@ -348,10 +348,14 @@ class __$$_MockDataStateDataCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MockDataStateData implements _MockDataStateData {
-  const _$_MockDataStateData({required this.data});
+  const _$_MockDataStateData({required final List<Flight> data}) : _data = data;
 
+  final List<Flight> _data;
   @override
-  final Flight data;
+  List<Flight> get data {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
   String toString() {
@@ -363,11 +367,12 @@ class _$_MockDataStateData implements _MockDataStateData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MockDataStateData &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
   @override
@@ -381,7 +386,7 @@ class _$_MockDataStateData implements _MockDataStateData {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Flight data) data,
+    required TResult Function(List<Flight> data) data,
     required TResult Function(String error) error,
   }) {
     return data(this.data);
@@ -392,7 +397,7 @@ class _$_MockDataStateData implements _MockDataStateData {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Flight data)? data,
+    TResult? Function(List<Flight> data)? data,
     TResult? Function(String error)? error,
   }) {
     return data?.call(this.data);
@@ -403,7 +408,7 @@ class _$_MockDataStateData implements _MockDataStateData {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Flight data)? data,
+    TResult Function(List<Flight> data)? data,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -452,10 +457,10 @@ class _$_MockDataStateData implements _MockDataStateData {
 }
 
 abstract class _MockDataStateData implements MockDataState {
-  const factory _MockDataStateData({required final Flight data}) =
+  const factory _MockDataStateData({required final List<Flight> data}) =
       _$_MockDataStateData;
 
-  Flight get data;
+  List<Flight> get data;
   @JsonKey(ignore: true)
   _$$_MockDataStateDataCopyWith<_$_MockDataStateData> get copyWith =>
       throw _privateConstructorUsedError;
@@ -528,7 +533,7 @@ class _$_MockDataStateError implements _MockDataStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Flight data) data,
+    required TResult Function(List<Flight> data) data,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -539,7 +544,7 @@ class _$_MockDataStateError implements _MockDataStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Flight data)? data,
+    TResult? Function(List<Flight> data)? data,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -550,7 +555,7 @@ class _$_MockDataStateError implements _MockDataStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Flight data)? data,
+    TResult Function(List<Flight> data)? data,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

@@ -6,7 +6,7 @@ part 'mock_state.freezed.dart';
 class MockDataState with _$MockDataState {
   const factory MockDataState.initial() = _MockDataStateInitial;
   const factory MockDataState.loading() = _MockDataStateLoading;
-  const factory MockDataState.data({required Flight data}) = _MockDataStateData;
+  const factory MockDataState.data({required List<Flight> data}) = _MockDataStateData;
   const factory MockDataState.error({required String error}) =
       _MockDataStateError;
 }
