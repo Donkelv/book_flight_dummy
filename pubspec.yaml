@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   freezed_annotation: ^2.2.0
   flutter_riverpod: ^2.1.1
+  dropdown_button2: ^1.8.9
 
 dev_dependencies:
   flutter_test:
