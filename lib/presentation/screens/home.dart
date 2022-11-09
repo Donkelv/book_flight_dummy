@@ -1,5 +1,6 @@
 import 'package:book_flight_dummy/logic/providers/mock.dart';
 import 'package:book_flight_dummy/presentation/widgets/dropdown_widget.dart';
+import 'package:book_flight_dummy/presentation/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -46,12 +47,17 @@ class _HomeState extends ConsumerState<Home> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Flightlist(),
-                  SizedBox(
+                children:  [
+                 const Flightlist(),
+                  const SizedBox(
                     height: 20.0,
                   ),
-                  FlightSegment()
+                  const FlightSegment(),
+                 const SizedBox(
+                    height: 50.0,
+                  ),
+                  CustomButton(size: size, onTap: (){}, text: "Submit")
+
                 ],
               ),
             ),
