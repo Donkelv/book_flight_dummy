@@ -41,18 +41,21 @@ class _HomeState extends ConsumerState<Home> {
           body: Container(
             color: Colors.white,
             width: size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Flightlist(),
-                SizedBox(
-                  height: 20.0,
-                ),
-                FlightSegment()
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Flightlist(),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  FlightSegment()
+                ],
+              ),
             ),
-          )),
+          ),),
     );
   }
 }
@@ -101,25 +104,32 @@ class SegmentWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              data!.origin!,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 20.0,
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                data!.origin!,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                ),
               ),
-            ),
-            Text(
-              data!.destination!,
-              style: const TextStyle(
+              const Icon(
+                Icons.arrow_circle_right_outlined,
                 color: Colors.black,
-                fontSize: 20.0,
               ),
-            ),
-          ],
+              Text(
+                data!.destination!,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                ),
+              ),
+            ],
+          ),
         )
       ],
     );
